@@ -1,16 +1,20 @@
 %header#banner.span-24
 	.span-8
-		= image_tag "repro_logo_clear.png"
-	.span-10
+		= link_to company_logo, root_path
+	.span-8
 		%h2 eClock 1.0
-	.span-6.large.last
+	.span-8.large.last
 		- if current_user
 			%p
 				Welcome,
-				= "#{current_user.name}."
+				= "#{current_user.fname} #{current_user.lname}."
 				= link_to "Sign Out", logout_path, :method => :delete
+				- if current_user.group == "corp"
+					|
+					= link_to "Admin", users_path
 		- else
 			%p
 				= link_to "Sign Up", signup_path
 				|
 				= link_to "Log In", login_path
+

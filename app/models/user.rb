@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@reprographix\.com+\z/i
   
   attr_accessible :email, :password, :password_confirmation,
-                  :name,  :status
+                  :fname, :lname,    :status,   :group
   validates :password,    :presence     => { :on => :create },
                           :confirmation => { :on => :create }
   validates :email,       :format       => { :with => email_regex }

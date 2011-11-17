@@ -1,0 +1,5 @@
+.span-6
+	- @users.each do |user|
+		= link_to "#{user.lname}, #{user.fname}", user
+		%br
+

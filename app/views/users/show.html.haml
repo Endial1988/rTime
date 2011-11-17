@@ -1,4 +1,4 @@
-.span-6
+.span-10
 	%p.large
-		= @user.name
-		= @user.email
+		= "#{@user.lname}, #{@user.fname}, #{@user.email}"
+		= render 'layouts/activity', :user => @user

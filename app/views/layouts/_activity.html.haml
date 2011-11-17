@@ -1,0 +1,29 @@
+.span-14.center.last
+	- if user && user.punches.any?
+		%h2 Recent Activity:
+		.span-14.last
+			- if user && user.punches.any?
+				#punches.span-14.last
+					.span-2.center Status
+					.span-1 From
+					.span-2 - To
+					.span-4 Elapsed
+					.span-5.last Comment
+				- user.punches.each do |p|
+					.span-14{:class => cycle('odd_row', 'even_row')}
+						.span-2.center
+							= p.status
+						.span-1
+							= p.created_at.strftime("%I:%M")
+						.span-2
+							&nbsp;
+							- if p.pull
+								= p.pull.strftime("%I:%M")
+						.span-4
+							&nbsp;
+							- if p.pull
+								= distance_of_time_in_words(p.created_at, p.pull)
+						.span-5.last
+							&nbsp;
+							- if p.comment
+								= p.comment

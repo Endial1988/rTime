@@ -12,4 +12,8 @@ module ApplicationHelper
     end
     return fl
   end
+
+	def company_logo
+		image_tag "repro_logo_clear.png"
+	end
 end

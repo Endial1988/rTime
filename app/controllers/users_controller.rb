@@ -31,6 +31,12 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    @user  = User.find(params[:id])
+		@title = "#{@user.fname} #{@user.lname}"
   end
+
+	def index
+		@title = "Employee List"
+		@users = User.all
+	end
 end
